@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: myconfigmap
+  namespace: mynamespace
+data:
+  mykey1: myvalue1
+  mykey2: myvalue2
+  filename.txt: |
+   This is file line 1
+   This is file line 2
