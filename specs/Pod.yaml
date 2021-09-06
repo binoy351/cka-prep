@@ -37,3 +37,10 @@ spec:
     - name: myconfigmapvolume
       configMap:
         name: myconfigmap
+
+        ## Example of volume mount from host
+  volumes:
+  - hostPath:
+      path: /var/log/webapp
+      type: DirectoryOrCreate
+    name: log-volume        
