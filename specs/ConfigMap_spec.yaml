@@ -9,3 +9,11 @@ data:
   filename.txt: |
    This is file line 1
    This is file line 2
+  file.properties: |
+    enemies=aliens
+    lives=3
+    enemies.cheat=true
+    enemies.cheat.level=noGoodRotten
+    secret.code.passphrase=UUDDLRLRBABAS
+    secret.code.allowed=true
+    secret.code.lives=30            
