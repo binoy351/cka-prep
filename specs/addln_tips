@@ -1,0 +1,21 @@
+alias k=kubectl
+export do="--dry-run=client -o yaml"
+alias kn='kubectl config set-context --current --namespace '
+
+
+~/.vimrc
+set tabstop=2
+set expandtab
+set shiftwidth=2
+
+
+
+Depending on how much is already pre-installed in the CKAD terminal it might be enough to do this:
+
+source <(kubectl completion bash)
+complete -F __start_kubectl k # to make it work with the alias k
+
+Else you need to run these lines before:
+
+sudo apt-get install bash-completion
+source ~/.bashrc
