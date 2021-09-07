@@ -35,3 +35,31 @@ spec:
     ports:
     - protocol: TCP
       port: 5978
+
+
+
+# this example is A or B or C
+...
+  egress:
+  - to:                     # 1st AND ONLY egress rule
+    - podSelector:            # allow egress only to pods with api label
+        matchLabels:
+          id: api
+    ports:                  # STILL THE SAME RULE but just an additional selector
+    - port: 53                # allow DNS UDP
+      protocol: UDP
+    - port: 53                # allow DNS TCP
+      protocol: TCP      
+
+# This example is A and B or C
+#
+  egress:
+  - to:                     # 1st egress rule
+    - podSelector:            # allow egress only to pods with api label
+        matchLabels:
+          id: api
+  - ports:                  # 2nd egress rule
+    - port: 53                # allow DNS UDP
+      protocol: UDP
+    - port: 53                # allow DNS TCP
+      protocol: TCP 
