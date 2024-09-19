@@ -65,3 +65,12 @@ spec:
     - name: secret-volume
       readOnly: true
       mountPath: "/etc/secret-volume"    
+
+
+
+### Env referencing a metadata
+    env:
+    - name: MY_NODE_NAME
+      valueFrom:
+        fieldRef:
+          fieldPath: spec.nodeName
