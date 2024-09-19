@@ -21,6 +21,9 @@ kubeadm join....
 
 service kubelet status
 
+---------------
+
+k api-resources --namespaced -o name
 
 k -n secret create secret generic secret2 --from-literal=user=user1 --from-literal=pass=1234
 
@@ -29,13 +32,9 @@ kubectl create deployment nginx --image=nginx --replicas=3 --dry-run=client -o y
 kubectl run nginx --image=nginx --dry-run=client -o yaml
 
 
-Taint
+Taint: kubectl taint nodes <nodename> key=value:effect
 
-kubectl taint nodes <nodename> key=value:effect
-
-Untaint
-
-kubectl taint nodes <nodename> key=value:effect-
+Untaint: kubectl taint nodes <nodename> key=value:effect-
 
 k get pods --selector=app=nginx
 
