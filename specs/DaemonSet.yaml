@@ -44,3 +44,9 @@ spec:
         hostPath:
           path: /var/lib/docker/containers
 
+
+
+#### Additionally to allow on controlplane nodes
+      tolerations:
+      - effect: NoSchedule
+        key: node-role.kubernetes.io/control-plane
