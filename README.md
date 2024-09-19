@@ -22,7 +22,7 @@ kubeadm join....
 service kubelet status
 
 
-
+k -n secret create secret generic secret2 --from-literal=user=user1 --from-literal=pass=1234
 
 kubectl create deployment nginx --image=nginx --replicas=3 --dry-run=client -o yaml > nginx-deployment.yaml
 
