@@ -96,6 +96,9 @@ ip address show type bridge
 
 openssl x509  -noout -text -in /etc/kubernetes/pki/apiserver.crt
 
+openssl x509  -noout -text -in /etc/kubernetes/pki/etcd/server.crt | grep Validity -A2
+
+
 kubeadm certs check-expiration
 
 kubeadm certs renew apiserver
