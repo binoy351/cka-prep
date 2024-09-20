@@ -5,6 +5,9 @@ set expandtab
 
 set shiftwidth=2
 
+alias k=kubectl
+
+export do="-o yaml --dry-run=client"
 
 ## Upgrade
 apt update
