@@ -40,6 +40,12 @@ k get pods --selector=app=nginx
 
 k label nodes node01 tier=large
 
+k -n project-c13 get pod \
+  -o jsonpath="{range .items[*]} {.metadata.name}{.spec.containers[*].resources}{'\n'}"
+
+k get pods -n project-c13 \
+  -o jsonpath="{range .items[*]}{.metadata.name} {.status.qosClass}{'\n'}"
+
 k get nodes -o=jsonpath='{.items[*].metadata.name}{"\n"}{.items[*].status.capacity.cpu}'
 
 k get nodes -o=jsonpath='{range .items[*]}{.metadata.name}{"\t"}{.status.capacity.cpu}{"\n"}{end}'
