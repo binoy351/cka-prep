@@ -1,0 +1,15 @@
+---
+apiVersion: certificates.k8s.io/v1
+kind: CertificateSigningRequest
+metadata:
+  name: john-developer
+spec:
+  signerName: kubernetes.io/kube-apiserver-client
+  request: base64 encoded
+  usages:
+  - digital signature
+  - key encipherment
+  - client auth
+
+
+kubectl certificate approve john-developer
