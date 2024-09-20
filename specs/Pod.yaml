@@ -74,3 +74,16 @@ spec:
       valueFrom:
         fieldRef:
           fieldPath: spec.nodeName
+
+
+
+### Tolerations
+tolerations:
+- key: "key1"
+  operator: "Equal"
+  value: "value1"
+  effect: "NoSchedule"
+- key: "key1"
+  operator: "Equal"
+  value: "value1"
+  effect: "NoExecute"
