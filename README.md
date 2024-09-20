@@ -116,9 +116,12 @@ ETCDCTL_API=3 etcdctl snapshot restore /tmp/etcd-backup.db \
 
 
 -- K8s api commands
+
 TOKEN=$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)
+
 curl -k https://kubernetes.default/api/v1/secrets -H "Authorization: Bearer ${TOKEN}"
 
 CACERT=/var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+
 curl --cacert ${CACERT} https://kubernetes.default/api/v1/secrets -H "Authorization: Bearer ${TOKEN}"
 
