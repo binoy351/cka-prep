@@ -8,31 +8,31 @@ metadata:
 spec:
   containers:
   - image: nginx:1.17.6-alpine
-    name: c1                                                                      # change
+    name: c1
     resources: {}
-    env:                                                                          # add
-    - name: MY_NODE_NAME                                                          # add
-      valueFrom:                                                                  # add
-        fieldRef:                                                                 # add
-          fieldPath: spec.nodeName                                                # add
-    volumeMounts:                                                                 # add
-    - name: vol                                                                   # add
-      mountPath: /vol                                                             # add
-  - image: busybox:1.31.1                                                         # add
-    name: c2                                                                      # add
-    command: ["sh", "-c", "while true; do date >> /vol/date.log; sleep 1; done"]  # add
-    volumeMounts:                                                                 # add
-    - name: vol                                                                   # add
-      mountPath: /vol                                                             # add
-  - image: busybox:1.31.1                                                         # add
-    name: c3                                                                      # add
-    command: ["sh", "-c", "tail -f /vol/date.log"]                                # add
-    volumeMounts:                                                                 # add
-    - name: vol                                                                   # add
-      mountPath: /vol                                                             # add
+    env:
+    - name: MY_NODE_NAME
+      valueFrom:  
+        fieldRef: 
+          fieldPath: spec.nodeName 
+    volumeMounts
+    - name: vol                                     
+      mountPath: /vol                               
+  - image: busybox:1.31.1                           
+    name: c2                                        
+    command: ["sh", "-c", "while true; do date >> /vol/date.log; sleep 1; done"]
+    volumeMounts: 
+    - name: vol 
+      mountPath: /vol   
+  - image: busybox:1.31.1                           
+    name: c3                                        
+    command: ["sh", "-c", "tail -f /vol/date.log"]  
+    volumeMounts:                                   
+    - name: vol                                     
+      mountPath: /vol                               
   dnsPolicy: ClusterFirst
   restartPolicy: Always
-  volumes:                                                                        # add
-    - name: vol                                                                   # add
-      emptyDir: {}                                                                # add
+  volumes:                                          
+    - name: vol                                     
+      emptyDir: {}                                  
 status: {}
