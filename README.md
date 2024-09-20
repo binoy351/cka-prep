@@ -135,5 +135,9 @@ CACERT=/var/run/secrets/kubernetes.io/serviceaccount/ca.crt
 
 curl --cacert ${CACERT} https://kubernetes.default/api/v1/secrets -H "Authorization: Bearer ${TOKEN}"
 
- auth can-i get secret --as system:serviceaccount:<ns>:<saname>
+auth can-i get secret --as system:serviceaccount:<ns>:<saname>
+
+
+-- Service CIDR
+check in kube-apiserver.yaml and kube-controller-manager.yaml
 
