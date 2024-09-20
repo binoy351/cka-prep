@@ -79,7 +79,7 @@ crictl logs <containerid>
 echo "" | base64 -w 0
 
 
-
+-- IP commands
 ip link
 
 ip addr
@@ -94,6 +94,10 @@ cat /proc/sys/net/ipv4/ip_forward
 
 ip address show type bridge
 
+iptables-save 
+
+
+-- certificate validation
 openssl x509  -noout -text -in /etc/kubernetes/pki/apiserver.crt
 
 openssl x509  -noout -text -in /etc/kubernetes/pki/etcd/server.crt | grep Validity -A2
